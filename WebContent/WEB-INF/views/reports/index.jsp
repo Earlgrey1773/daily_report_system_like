@@ -21,7 +21,10 @@
                     <tr class="row${status.count % 2}">
                         <td class="report_name"><c:out value="${report.employee.name}" /></td>
                         <td class="report_date"><fmt:formatDate value='${report.report_date}' pattern='yyyy-MM-dd' /></td>
-                        <td class="report_title">${report.title}</td>
+                        <td class="report_title">${report.title}
+                        <form method="post" action="<c:url value='/likes' />"><input type="hidden" name="employee_id" value="${sessionScope.login_employee.id}"/>
+                        <input type="hidden" name="report_id" value="${report.id}"/>
+                        <input type="hidden" name="_like" value="${_like}"/><input type="submit" value="いいね" onclick="disabled = true;"></form></td>
                         <td class="report_action"><a href="<c:url value='/reports/show?id=${report.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>

@@ -50,7 +50,7 @@ public class ReportsIndexServlet extends HttpServlet {
                                      .getSingleResult();
 
         em.close();
-
+        request.setAttribute("_like", 1);
         request.setAttribute("reports", reports);
         request.setAttribute("reports_count", reports_count);
         request.setAttribute("page", page);
